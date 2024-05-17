@@ -8,5 +8,6 @@ return {
   },
   config = function()
     vim.keymap.set('n', '<C-n>', ':Neotree filesystem reveal left<CR>', {}) --neo-tree
+    vim.keymap.set('n', '<leader>n', ':Neotree close<CR>', {}) --neo-tree
   end
 }
