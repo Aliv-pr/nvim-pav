@@ -18,7 +18,12 @@ return {
     config = function()
       local lspconfig = require("lspconfig")
       lspconfig.lua_ls.setup({}) --lua
-      lspconfig.tsserver.setup({}) --lua
+      lspconfig.tsserver.setup({
+        cmd = { "typescript-language-server.cmd", "--stdio" },
+        filetypes = {
+         "typeScript", "javaScript"
+        },
+      }) --lua
       lspconfig.ltex.setup({
         cmd = { "ltex-ls.cmd" },
         filetypes = {
