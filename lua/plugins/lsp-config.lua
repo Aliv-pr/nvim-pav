@@ -19,7 +19,12 @@ return {
       local lspconfig = require("lspconfig")
       lspconfig.lua_ls.setup({}) --lua
       lspconfig.tsserver.setup({}) --lua
-      lspconfig.ltex.setup({}) -- LaTex, Markdown, etc
+      lspconfig.ltex.setup({
+        cmd = { "ltex-ls.cmd" },
+        filetypes = {
+          "tex", "bib", "markdown", "plaintex", "rst", "org", "pandoc", "quarto"
+        },
+      }) -- LaTex, Markdown, etc
       -- lspconfig.tsserver.setup({}) --typescript
 
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
