@@ -9,7 +9,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = {"lua_ls", "tsserver", "ltex"}
+        ensure_installed = {"lua_ls", "ts_ls", "ltex"}
       })
     end
   },
@@ -18,7 +18,7 @@ return {
     config = function()
       local lspconfig = require("lspconfig")
       lspconfig.lua_ls.setup({}) --lua
-      lspconfig.tsserver.setup({
+      lspconfig.ts_ls.setup({
         cmd = { "typescript-language-server.cmd", "--stdio" },
         filetypes = {
          "typeScript", "javaScript"
