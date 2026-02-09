@@ -6,31 +6,12 @@ return {
     end
   },
   {
-    "williamboman/mason-lspconfig.nvim",
-    config = function()
-      require("mason-lspconfig").setup({
-        ensure_installed = {"lua_ls", "ts_ls", "ltex"}
-      })
-    end
-  },
-  {
     "neovim/nvim-lspconfig",
     config = function()
       local lspconfig = require("lspconfig")
-      lspconfig.lua_ls.setup({}) --lua
-      lspconfig.ts_ls.setup({
-        cmd = { "typescript-language-server.cmd", "--stdio" },
-        filetypes = {
-         "typeScript", "javaScript"
-        },
+      lspconfig.lua_ls.setup({
+        cmd = { "lua-language-server.cmd" }
       }) --lua
-      lspconfig.ltex.setup({
-        cmd = { "ltex-ls.cmd" },
-        filetypes = {
-          "tex", "bib", "markdown", "plaintex", "rst", "org", "pandoc", "quarto"
-        },
-      }) -- LaTex, Markdown, etc
-      -- lspconfig.tsserver.setup({}) --typescript
 
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
